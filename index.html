@@ -1,8 +1,114 @@
 <!DOCTYPE html>
-<html>
+<head>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
 <body>
-
 <h1>BDSP Poke Radar Sim</h1>
-
+<div id="tools">
+    <button onclick="randPos();radarArea();">Random Position</button>
+    <div id="position">Row: 5 Patch: 5</div>
+</div>
+<div id="container">
+    <div id="row-1" class="rows">
+        <div id="1-1"><img class="grass" src="assets/Grass.png"></div>
+        <div id="1-2"><img class="grass" src="assets/Grass.png"></div>
+        <div id="1-3"><img class="grass" src="assets/Grass.png"></div>
+        <div id="1-4"><img class="grass" src="assets/Grass.png"></div>
+        <div id="1-5"><img class="grass" src="assets/Grass.png"></div>
+        <div id="1-6"><img class="grass" src="assets/Grass.png"></div>
+        <div id="1-7"><img class="grass" src="assets/Grass.png"></div>
+        <div id="1-8"><img class="grass" src="assets/Grass.png"></div>
+        <div id="1-9"><img class="grass" src="assets/Grass.png"></div>
+    </div>
+    <div id="row-2" class="rows">
+        <div id="2-1"><img class="grass" src="assets/Grass.png"></div>
+        <div id="2-2"><img class="grass" src="assets/Grass.png"></div>
+        <div id="2-3"><img class="grass" src="assets/Grass.png"></div>
+        <div id="2-4"><img class="grass" src="assets/Grass.png"></div>
+        <div id="2-5"><img class="grass" src="assets/Grass.png"></div>
+        <div id="2-6"><img class="grass" src="assets/Grass.png"></div>
+        <div id="2-7"><img class="grass" src="assets/Grass.png"></div>
+        <div id="2-8"><img class="grass" src="assets/Grass.png"></div>
+        <div id="2-9"><img class="grass" src="assets/Grass.png"></div>
+    </div>
+    <div id="row-3" class="rows">
+        <div id="3-1"><img class="grass" src="assets/Grass.png"></div>
+        <div id="3-2"><img class="grass" src="assets/Grass.png"></div>
+        <div id="3-3"><img class="grass" src="assets/Grass.png"></div>
+        <div id="3-4"><img class="grass" src="assets/Grass.png"></div>
+        <div id="3-5"><img class="grass" src="assets/Grass.png"></div>
+        <div id="3-6"><img class="grass" src="assets/Grass.png"></div>
+        <div id="3-7"><img class="grass" src="assets/Grass.png"></div>
+        <div id="3-8"><img class="grass" src="assets/Grass.png"></div>
+        <div id="3-9"><img class="grass" src="assets/Grass.png"></div>
+    </div>
+    <div id="row-4" class="rows">
+        <div id="4-1"><img class="grass" src="assets/Grass.png"></div>
+        <div id="4-2"><img class="grass" src="assets/Grass.png"></div>
+        <div id="4-3"><img class="grass" src="assets/Grass.png"></div>
+        <div id="4-4"><img class="grass" src="assets/Grass.png"></div>
+        <div id="4-5"><img class="grass" src="assets/Grass.png"></div>
+        <div id="4-6"><img class="grass" src="assets/Grass.png"></div>
+        <div id="4-7"><img class="grass" src="assets/Grass.png"></div>
+        <div id="4-8"><img class="grass" src="assets/Grass.png"></div>
+        <div id="4-9"><img class="grass" src="assets/Grass.png"></div>
+    </div>
+    <div id="row-5" class="rows">
+        <div id="5-1"><img class="grass" src="assets/Grass.png"></div>
+        <div id="5-2"><img class="grass" src="assets/Grass.png"></div>
+        <div id="5-3"><img class="grass" src="assets/Grass.png"></div>
+        <div id="5-4"><img class="grass" src="assets/Grass.png"></div>
+        <div id="5-5"><img class="grass" src="assets/Grass.png"></div>
+        <div id="5-6"><img class="grass" src="assets/Grass.png"></div>
+        <div id="5-7"><img class="grass" src="assets/Grass.png"></div>
+        <div id="5-8"><img class="grass" src="assets/Grass.png"></div>
+        <div id="5-9"><img class="grass" src="assets/Grass.png"></div>
+    </div>
+    <div id="row-6" class="rows">
+        <div id="6-1"><img class="grass" src="assets/Grass.png"></div>
+        <div id="6-2"><img class="grass" src="assets/Grass.png"></div>
+        <div id="6-3"><img class="grass" src="assets/Grass.png"></div>
+        <div id="6-4"><img class="grass" src="assets/Grass.png"></div>
+        <div id="6-5"><img class="grass" src="assets/Grass.png"></div>
+        <div id="6-6"><img class="grass" src="assets/Grass.png"></div>
+        <div id="6-7"><img class="grass" src="assets/Grass.png"></div>
+        <div id="6-8"><img class="grass" src="assets/Grass.png"></div>
+        <div id="6-9"><img class="grass" src="assets/Grass.png"></div>
+    </div>
+    <div id="row-7" class="rows">
+        <div id="7-1"><img class="grass" src="assets/Grass.png"></div>
+        <div id="7-2"><img class="grass" src="assets/Grass.png"></div>
+        <div id="7-3"><img class="grass" src="assets/Grass.png"></div>
+        <div id="7-4"><img class="grass" src="assets/Grass.png"></div>
+        <div id="7-5"><img class="grass" src="assets/Grass.png"></div>
+        <div id="7-6"><img class="grass" src="assets/Grass.png"></div>
+        <div id="7-7"><img class="grass" src="assets/Grass.png"></div>
+        <div id="7-8"><img class="grass" src="assets/Grass.png"></div>
+        <div id="7-9"><img class="grass" src="assets/Grass.png"></div>
+    </div>
+    <div id="row-8" class="rows">
+        <div id="8-1"><img class="grass" src="assets/Grass.png"></div>
+        <div id="8-2"><img class="grass" src="assets/Grass.png"></div>
+        <div id="8-3"><img class="grass" src="assets/Grass.png"></div>
+        <div id="8-4"><img class="grass" src="assets/Grass.png"></div>
+        <div id="8-5"><img class="grass" src="assets/Grass.png"></div>
+        <div id="8-6"><img class="grass" src="assets/Grass.png"></div>
+        <div id="8-7"><img class="grass" src="assets/Grass.png"></div>
+        <div id="8-8"><img class="grass" src="assets/Grass.png"></div>
+        <div id="8-9"><img class="grass" src="assets/Grass.png"></div>
+    </div>
+    <div id="row-9" class="rows">
+        <div id="9-1"><img class="grass" src="assets/Grass.png"></div>
+        <div id="9-2"><img class="grass" src="assets/Grass.png"></div>
+        <div id="9-3"><img class="grass" src="assets/Grass.png"></div>
+        <div id="9-4"><img class="grass" src="assets/Grass.png"></div>
+        <div id="9-5"><img class="grass" src="assets/Grass.png"></div>
+        <div id="9-6"><img class="grass" src="assets/Grass.png"></div>
+        <div id="9-7"><img class="grass" src="assets/Grass.png"></div>
+        <div id="9-8"><img class="grass" src="assets/Grass.png"></div>
+        <div id="9-9"><img class="grass" src="assets/Grass.png"></div>
+    </div>
+</div>
 </body>
-</html>
+<script src="js/main.js"></script>

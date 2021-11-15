@@ -1,0 +1,36 @@
+.grass {
+    zoom: 3;
+    image-rendering: pixelated;
+}
+
+h1 {
+    text-align: center;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rows {
+    display: flex;
+    flex-direction: row;
+}
+
+#player {
+    position: absolute;
+    zoom: 2;
+    image-rendering: pixelated;
+    margin-left: -22px;
+    margin-top: -6px;
+    pointer-events: none;
+}
+
+#tools {
+    display: flex;
+    margin-bottom: 12px;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}

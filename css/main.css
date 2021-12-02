@@ -1,4 +1,29 @@
+html::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    font-family: Verdana, sans-serif;
+    color: whitesmoke;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    background: url("../assets/Background.png") no-repeat center center fixed;
+    background-size: cover;
+    background-color: #2c2f33;
+    overflow-y: scroll;
+}
+
 .grass {
+    height: 13px;
+    width: 16px;
+    zoom: 3;
+    image-rendering: pixelated;
+}
+
+.rock {
+    height: 13px;
+    width: 16px;
     zoom: 3;
     image-rendering: pixelated;
 }
@@ -7,10 +32,142 @@ h1 {
     text-align: center;
 }
 
+details {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;;
+    bottom: 0px;
+    user-select: none;
+}
+
+summary {
+    padding: 10px;
+    background-color: #2c2f33;
+    cursor: pointer;
+    outline-style: solid;
+    outline-color: aquamarine;
+    border-radius: 10px;
+    outline-width: 2px;
+}
+
+hr {
+    width: 95%;
+    margin-block-start: 0.1em;
+    margin-block-end: 0.1em;
+}
+
+#header {
+    /* display: flex;
+    flex-direction: column;
+    margin-top: 84px;
+    height: 260px; */
+    position: absolute;
+    z-index: 5;
+    margin-top: 84px;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
 #container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #23272a;
+    padding: 10px;
+    border-radius: 10px;
+    background-image: url("../assets/Grass_Back.png");
+    height: 378px;
+    width: 432px;
+    outline-style: solid;
+    outline-color: seagreen;
+    outline-width: 3px;
+    margin-top: 160px;
+    position: absolute;
+}
+
+
+#chain-odds {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 5px;
+    background-color: #2c2f33;
+    cursor: pointer;
+    outline-style: solid;
+    outline-color: aquamarine;
+    border-radius: 10px;
+    outline-width: 2px;
+    position: absolute;
+    margin-top: 561px;
+    z-index: -1;
+}
+
+#options {
+    z-index: 5;
+    position: relative;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#automater {
+    z-index: 4;
+    /* position: absolute;
+    margin-top: 60px; */
+    margin-left: 5px;
+    margin-right: 5px;
+    /* margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 15px;
+    background-color: #2c2f33;
+    outline-style: solid;
+    outline-color: aquamarine;
+    border-radius: 10px;
+    outline-width: 2px;
+    position: absolute;
+    left: 20px; */
+}
+
+#statistics {
+    z-index: 3;
+    /* position: absolute;
+    margin-top: 118px; */
+    margin-left: 5px;
+    margin-right: 5px;
+    /* margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 15px;
+    background-color: #2c2f33;
+    outline-style: solid;
+    outline-color: aquamarine;
+    border-radius: 10px;
+    outline-width: 2px;
+    position: absolute;
+    right: 20px;
+    min-width: 265px; */
+}
+
+#statistics > details > .tools {
+    cursor: pointer;
+}
+
+.stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.stat-icon > img {
+    margin-right: 5px;
 }
 
 .rows {
@@ -18,19 +175,92 @@ h1 {
     flex-direction: row;
 }
 
+.rows > div {
+    background-image: url("../assets/Grass_Back.png");
+}
+
 #player {
     position: absolute;
+    z-index: 2;
     zoom: 2;
     image-rendering: pixelated;
-    margin-left: -22px;
+    margin-left: -20.5px;
     margin-top: -6px;
     pointer-events: none;
 }
 
-#tools {
+.tools {
     display: flex;
-    margin-bottom: 12px;
     flex-direction: column;
     align-items: center;
     gap: 5px;
+    border-left: 2px solid aquamarine;
+    border-right: 2px solid aquamarine;
+    border-bottom: 2px solid aquamarine;
+    border-radius: 10px;
+    background-color: #2c2f33;
+    user-select: none;
+    padding: 10px;
+    min-width: max-content;
+}
+
+.tools:nth-of-type(1) {
+    padding-top: 12px;
+}
+
+.tools:nth-last-child(1) {
+    padding-bottom: 12px;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2px;
+}
+
+input[type="text"] {
+    width: 50%
+}
+input {
+    color: black;
+}
+.infinity:valid {
+    font-weight: bold;
+    color: purple;
+    outline-width: 1px;
+    outline-color: purple;
+}
+
+.move-left {
+    animation: move-left 150ms 1;
+}
+.move-right {
+    animation: move-right 150ms 1;
+}
+.move-up {
+    animation: move-up 150ms 1;
+}
+.move-down {
+    animation: move-down 150ms 1;
+}
+@keyframes move-left {
+    from {transform: translateX(0px);}
+    to {transform: translateX(-24px);}
+}
+@keyframes move-right {
+    from {transform: translateX(0px);}
+    to {transform: translateX(24px);}
+}
+@keyframes move-up {
+    from {transform: translateY(0px);}
+    to {transform: translateY(-21.2px);}
+}
+@keyframes move-down {
+    from {transform: translateY(0px);}
+    to {transform: translateY(21.2px);}
+}
+
+#preload {
+    display: none;
 }

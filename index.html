@@ -1,114 +1,103 @@
 <!DOCTYPE html>
 <head>
+    <link rel="icon" type="image/x-icon" href="assets\Poké_Radar.webp">
+    <title>BDSP Poke Radar Sim</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="lib/Toast.min.css">
+    <script src="lib/Toast.min.js"></script>
 </head>
 
 <body>
 <h1>BDSP Poke Radar Sim</h1>
-<div id="tools">
-    <button onclick="randPos();radarArea();">Random Position</button>
-    <div id="position">Row: 5 Patch: 5</div>
+<div id="header">
+<div id="options">
+<details>
+    <summary>Options & Tools</summary>
+    <div class="tools">
+        <select id="game-version">
+            <option value="0">BDSP</option>
+            <option value="1">DPPt</option>
+        </select>
+        <div><label for="catching">Catching? </label><input type="checkbox" id="catching"></div>
+        <div class="input-container"><input id="chain-set" type="text"><button onclick="useRadar();">Set Chain</button></div>
+        <button onclick="randPos();radarArea();">Random Position</button>
+        <button onclick="useRadar();">Use Radar</button>
+        <div id="position">Row: 5 Patch: 5</div>
+    </div>
+</details>
 </div>
-<div id="container">
-    <div id="row-1" class="rows">
-        <div id="1-1"><img class="grass" src="assets/Grass.png"></div>
-        <div id="1-2"><img class="grass" src="assets/Grass.png"></div>
-        <div id="1-3"><img class="grass" src="assets/Grass.png"></div>
-        <div id="1-4"><img class="grass" src="assets/Grass.png"></div>
-        <div id="1-5"><img class="grass" src="assets/Grass.png"></div>
-        <div id="1-6"><img class="grass" src="assets/Grass.png"></div>
-        <div id="1-7"><img class="grass" src="assets/Grass.png"></div>
-        <div id="1-8"><img class="grass" src="assets/Grass.png"></div>
-        <div id="1-9"><img class="grass" src="assets/Grass.png"></div>
+
+<div id="automater">
+<details>
+    <summary>Automation</summary>
+    <div class="tools">
+        <div class="input-container">Chain Method:
+            <select id="chain-method">
+                <option value="0">1 Patch Away</option>
+                <option value="1">2 Patch Away</option>
+                <option value="2">3 Patch Away</option>
+                <option value="3">4 Patch Away</option>
+            </select>
+        </div>
+        <div class="input-container">Chain Attempts:<input id="chain-attempt" class="infinity" type="text" pattern="^∞$"></div>
+        <div class="input-container">Chain Target:<input id="chain-target" type="text"></div>
+        <div class="input-container">Automate Delay:<input id="auto-delay" type="text"></div>
+        <button id="automate" onclick="startAutomate();">Automate</button>
     </div>
-    <div id="row-2" class="rows">
-        <div id="2-1"><img class="grass" src="assets/Grass.png"></div>
-        <div id="2-2"><img class="grass" src="assets/Grass.png"></div>
-        <div id="2-3"><img class="grass" src="assets/Grass.png"></div>
-        <div id="2-4"><img class="grass" src="assets/Grass.png"></div>
-        <div id="2-5"><img class="grass" src="assets/Grass.png"></div>
-        <div id="2-6"><img class="grass" src="assets/Grass.png"></div>
-        <div id="2-7"><img class="grass" src="assets/Grass.png"></div>
-        <div id="2-8"><img class="grass" src="assets/Grass.png"></div>
-        <div id="2-9"><img class="grass" src="assets/Grass.png"></div>
-    </div>
-    <div id="row-3" class="rows">
-        <div id="3-1"><img class="grass" src="assets/Grass.png"></div>
-        <div id="3-2"><img class="grass" src="assets/Grass.png"></div>
-        <div id="3-3"><img class="grass" src="assets/Grass.png"></div>
-        <div id="3-4"><img class="grass" src="assets/Grass.png"></div>
-        <div id="3-5"><img class="grass" src="assets/Grass.png"></div>
-        <div id="3-6"><img class="grass" src="assets/Grass.png"></div>
-        <div id="3-7"><img class="grass" src="assets/Grass.png"></div>
-        <div id="3-8"><img class="grass" src="assets/Grass.png"></div>
-        <div id="3-9"><img class="grass" src="assets/Grass.png"></div>
-    </div>
-    <div id="row-4" class="rows">
-        <div id="4-1"><img class="grass" src="assets/Grass.png"></div>
-        <div id="4-2"><img class="grass" src="assets/Grass.png"></div>
-        <div id="4-3"><img class="grass" src="assets/Grass.png"></div>
-        <div id="4-4"><img class="grass" src="assets/Grass.png"></div>
-        <div id="4-5"><img class="grass" src="assets/Grass.png"></div>
-        <div id="4-6"><img class="grass" src="assets/Grass.png"></div>
-        <div id="4-7"><img class="grass" src="assets/Grass.png"></div>
-        <div id="4-8"><img class="grass" src="assets/Grass.png"></div>
-        <div id="4-9"><img class="grass" src="assets/Grass.png"></div>
-    </div>
-    <div id="row-5" class="rows">
-        <div id="5-1"><img class="grass" src="assets/Grass.png"></div>
-        <div id="5-2"><img class="grass" src="assets/Grass.png"></div>
-        <div id="5-3"><img class="grass" src="assets/Grass.png"></div>
-        <div id="5-4"><img class="grass" src="assets/Grass.png"></div>
-        <div id="5-5"><img class="grass" src="assets/Grass.png"></div>
-        <div id="5-6"><img class="grass" src="assets/Grass.png"></div>
-        <div id="5-7"><img class="grass" src="assets/Grass.png"></div>
-        <div id="5-8"><img class="grass" src="assets/Grass.png"></div>
-        <div id="5-9"><img class="grass" src="assets/Grass.png"></div>
-    </div>
-    <div id="row-6" class="rows">
-        <div id="6-1"><img class="grass" src="assets/Grass.png"></div>
-        <div id="6-2"><img class="grass" src="assets/Grass.png"></div>
-        <div id="6-3"><img class="grass" src="assets/Grass.png"></div>
-        <div id="6-4"><img class="grass" src="assets/Grass.png"></div>
-        <div id="6-5"><img class="grass" src="assets/Grass.png"></div>
-        <div id="6-6"><img class="grass" src="assets/Grass.png"></div>
-        <div id="6-7"><img class="grass" src="assets/Grass.png"></div>
-        <div id="6-8"><img class="grass" src="assets/Grass.png"></div>
-        <div id="6-9"><img class="grass" src="assets/Grass.png"></div>
-    </div>
-    <div id="row-7" class="rows">
-        <div id="7-1"><img class="grass" src="assets/Grass.png"></div>
-        <div id="7-2"><img class="grass" src="assets/Grass.png"></div>
-        <div id="7-3"><img class="grass" src="assets/Grass.png"></div>
-        <div id="7-4"><img class="grass" src="assets/Grass.png"></div>
-        <div id="7-5"><img class="grass" src="assets/Grass.png"></div>
-        <div id="7-6"><img class="grass" src="assets/Grass.png"></div>
-        <div id="7-7"><img class="grass" src="assets/Grass.png"></div>
-        <div id="7-8"><img class="grass" src="assets/Grass.png"></div>
-        <div id="7-9"><img class="grass" src="assets/Grass.png"></div>
-    </div>
-    <div id="row-8" class="rows">
-        <div id="8-1"><img class="grass" src="assets/Grass.png"></div>
-        <div id="8-2"><img class="grass" src="assets/Grass.png"></div>
-        <div id="8-3"><img class="grass" src="assets/Grass.png"></div>
-        <div id="8-4"><img class="grass" src="assets/Grass.png"></div>
-        <div id="8-5"><img class="grass" src="assets/Grass.png"></div>
-        <div id="8-6"><img class="grass" src="assets/Grass.png"></div>
-        <div id="8-7"><img class="grass" src="assets/Grass.png"></div>
-        <div id="8-8"><img class="grass" src="assets/Grass.png"></div>
-        <div id="8-9"><img class="grass" src="assets/Grass.png"></div>
-    </div>
-    <div id="row-9" class="rows">
-        <div id="9-1"><img class="grass" src="assets/Grass.png"></div>
-        <div id="9-2"><img class="grass" src="assets/Grass.png"></div>
-        <div id="9-3"><img class="grass" src="assets/Grass.png"></div>
-        <div id="9-4"><img class="grass" src="assets/Grass.png"></div>
-        <div id="9-5"><img class="grass" src="assets/Grass.png"></div>
-        <div id="9-6"><img class="grass" src="assets/Grass.png"></div>
-        <div id="9-7"><img class="grass" src="assets/Grass.png"></div>
-        <div id="9-8"><img class="grass" src="assets/Grass.png"></div>
-        <div id="9-9"><img class="grass" src="assets/Grass.png"></div>
-    </div>
+</details>
 </div>
+
+<div id="statistics">
+<details>
+    <summary>Statistics</summary>
+    <div class="tools">
+        <div id="radar-uses">Radar Uses: 0</div>
+        <div id="chain-break">Chain Breaks: 0</div>
+        <div id="chain-high">Highest Chain: 0</div>
+        <div id="chain-average">Chain Average: 0</div>
+        <div class="stat-icon"><img src="assets/Grass.png" style="filter: hue-rotate(50deg);"><div id="normal-patch">Normal Patches: 0</div></div>
+        <div class="stat-icon"><img src="assets/Grass.png" style="filter: hue-rotate(100deg);"><div id="ability-patch">HA Patches: 0</div></div>
+        <div class="stat-icon"><img src="assets/Grass_Shiny.png" style="filter: hue-rotate(300deg);"><div id="shiny-patch">Shiny Patches: 0</div></div>
+        <div class="stat-icon"><img src="assets/Grass_Shiny.png" style="filter: hue-rotate(200deg);"><div id="shiny-ha-patch">Shiny HA Patches: 0</div></div>
+        <hr>
+        <div id="flaw-1IV">Flawless 1 IV: 0</div>
+        <div id="flaw-2IV">Flawless 2 IV: 0</div>
+        <div id="flaw-3IV">Flawless 3 IV: 0</div>
+        <div id="flaw-5IV">Flawless 5 IV: 0</div>
+        <hr>
+        <div id="0IV">Total 0 IV: 0</div>
+        <div id="1IV">Total 1 IV: 0</div>
+        <div id="2IV">Total 2 IV: 0</div>
+        <div id="3IV">Total 3 IV: 0</div>
+        <div id="4IV">Total 4 IV: 0</div>
+        <div id="5IV">Total 5 IV: 0</div>
+        <div id="6IV">Total 6 IV: 0</div>
+    </div>
+</details>
+</div>
+
+</div>
+
+<div id="container"></div>
+<div id="chain-odds">
+    <div id="chain-counter"></div>
+    <div id="shiny-chance"></div>
+</div>
+<div id="preload">
+    <img src="assets\Grass.png" width="1" height="1" />
+    <img src="assets\Grass_Shiny.png" width="1" height="1" />
+    <img src="assets\player\Player_Back.png" width="1" height="1" />
+    <img src="assets\player\Player_Down_1.png" width="1" height="1" />
+    <img src="assets\player\Player_Down_2.png" width="1" height="1" />
+    <img src="assets\player\Player_Front.png" width="1" height="1" />
+    <img src="assets\player\Player_L_Side.png" width="1" height="1" />
+    <img src="assets\player\Player_Left_1.png" width="1" height="1" />
+    <img src="assets\player\Player_Left_2.png" width="1" height="1" />
+    <img src="assets\player\Player_R_Side.png" width="1" height="1" />
+    <img src="assets\player\Player_Right_1.png" width="1" height="1" />
+    <img src="assets\player\Player_Right_2.png" width="1" height="1" />
+    <img src="assets\player\Player_Up_1.png" width="1" height="1" />
+    <img src="assets\player\Player_Up_2.png" width="1" height="1" />
+ </div>
 </body>
 <script src="js/main.js"></script>
